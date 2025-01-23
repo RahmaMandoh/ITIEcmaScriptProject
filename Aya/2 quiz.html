@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .choices label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:disabled {
+            background-color: #ccc;
+        }
+        .flag-btn {
+            background-color: #ff9800;
+        }
+        .flagged {
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz Time!</h1>
+        <div id="question-container"></div>
+        <div class="nav-buttons">
+            <button class="btn" id="prev" disabled>Previous</button>
+            <button class="btn flag-btn" id="flag">Flag</button>
+            <button class="btn" id="next">Next</button>
+        </div>
+        <div id="results" style="margin-top: 20px; display: none;"></div>
+    </div>
+    <script src="2 quiz.js"></script>
+</body>
+</html>
