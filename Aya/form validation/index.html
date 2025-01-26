@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>form validation</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>User Form</h2>
+            <form action="">
+                <div class="user">
+                    <label for="username">Name :</label>
+                <input type="text" name="username" id="username" placeholder="Enter your name">
+                <span class="name-error"></span>
+            </div>
+            <div class="user">
+                <label for="userAge">Age :</label>
+                <input type="text" name="userAge" id="userAge" placeholder="Enter your age">
+                <span class="age-error"></span>
+            </div>
+            <div class="user">
+                <label for="userEmail">Email :</label>
+                <input type="email" name="userEmail" id="userEmail" placeholder="Enter your email">
+                <span class="email-error"></span>
+            </div>
+            <!-- password -------------------------- -->
+            <div class="user">
+                <label for="userPassword">Password :</label>
+                <input type="password"  name="userPassword" id="password" placeholder="Enter your Password">
+                <span class="show"><i class="fa-solid fa-eye-low-vision"></i></span>
+            </div>
+            <div class="buttons">
+                <input class="btn" id="add" type="button" value="Add">
+                <input class="btn" type="reset" value="Reset">
+                </div>
+            </form>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

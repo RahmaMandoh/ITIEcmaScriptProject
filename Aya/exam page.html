@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .spiral{
+            width: 10px;
+            height: 50px;
+            background: #f4f4f4;
+            border: 2px solid #bbb;
+            border-radius: 100px;
+            box-shadow: inset 2px 2px 4px rgba(99, 186, 207, 0.733);
+        }
+        .spirals{
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            position: absolute;
+            z-index: 3;
+            top: -35px;
+            left: 0;
+            width: 100%;
+        }
+        /*  */
+        #exam-time{
+            font-family: "Cabin Sketch", serif;
+            float: left;
+        }
+        #question{
+            padding: 15px;
+            height: 300px;
+            width: 100%;
+        }
+        /*  */
+        .tabs{
+            position: absolute;
+            left: -25px;
+            z-index: -1;
+        }
+        .tab{
+            width: 50px;
+            height: 30px;
+            padding: 1px;
+            background-color: rgb(241, 241, 170);
+            border: 1px solid #bbb;
+        }
+        .selected-tab{
+            transform: translate(-20px);
+
+        }
+    </style>
+</head>
+<body>
+    <!-- this code is reapeated in each page  -->
+    <div class="notebook-paper flex-col">
+        <section class="spirals">
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+            <section class="spiral"></section>
+        </section>
+        <div class="torn-top"></div>
+        <div class="tabs">
+            <div class="tab">1</div>
+            <div class="tab">2</div>
+            <div class="tab">3</div>
+            <div class="tab">4</div>
+            <div class="tab">5</div>
+            <div class="tab selected-tab">6</div>
+            <div class="tab">7</div>
+            <div class="tab">8</div>
+            <div class="tab">9</div>
+            <div class="tab">10</div>
+        </div>
+        <!-- here put the content  -->
+        <div id="question">
+            <span id="exam-time">00:00</span>
+
+         </div>
+</body>
+</html>
