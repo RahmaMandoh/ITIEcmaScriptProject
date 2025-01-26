@@ -34,28 +34,34 @@
                     <input type="text" name="firstName" id="firstNameInput" >
                     <div class="error-message" id="firstNameEpmty">This field is empty</div>
                     <div class="error-message" id="firstNameChar">Required characters only</div>
+                    <div class="error-message" id="firstNameLen">Length more than 2</div>
                    </div>
                    <div id="lastName">
                     <label for="firstName">Last Name</label>
                     <input type="text" name="firstName" id="lastNameInput">
                     <div class="error-message" id="lastNameEpmty">This field is empty</div>
-                    <div></div>
+                    <div class="error-message" id="lastNameChar">Required characters only</div>
+                    <div class="error-message" id="lastNameLen">Length more than 2</div>
                    </div>
             </div>
            <div class="input-cont">
                <label for="email">E-mail</label>
                <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="email" id="emailInput">
                <div class="error-message" id="emailEpmty">This field is empty</div>
+               <div class="error-message" id="invalidEmail">Invalid email</div>
            </div>
            <div class="input-cont">
                <label for="password">Password</label>
                <input type="password" name="password" id="passwordInput">
                <div class="error-message" id="passwordEpmty">This field is empty</div>
+               <div class="error-message" id="weakPassword">Password must be at least 8 characters long,<br> include a number,
+                an uppercase letter,<br> a lowercase letter, and a special character.</div>
            </div>
            <div class="input-cont">
                <label for="connfirmpassword">Confirm Password</label>
                <input type="password" name="connfirmpassword" id="confirmPasswordInput">
                <div class="error-message" id="confirmPasswordEpmty">This field is empty</div>
+               <div class="error-message" id="passwordMismatch">Passwords do not match</div>
            </div>
            <!-- <input type="submit" name="Sign In"> -->
             <button type="submit" id="signInButton">Sign In</button>
