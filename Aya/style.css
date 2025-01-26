@@ -15,6 +15,7 @@
         h1{
             font-family: "Cabin Sketch", serif;
             text-align: center;
+            color: #002233;
         }
         /* -------------------------------------creating notebook paper--------------------------- */
         
@@ -144,13 +145,15 @@
         label{
             font-weight: 400;
             display: block;
-            width: 38%;
+            width: 60%;
             text-align: left;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: #002233;
         }
         h6{
             font-weight: 500;
             font-size: 22px;
+            color: #002233;
         }
         input{
             /* width: 500px; */
@@ -170,6 +173,18 @@
             margin-bottom:30px;
             width: 70%;
             
+        }
+        .nameField{
+            display: flex;
+            flex-direction: row;
+            width: 70%;
+            margin-bottom: 30px;
+        }
+        #firstName, #lastName{
+            width: 50%;
+        }
+        #firstName{
+            margin-right: 16px;
         }
         /* -------------------------------------start exam--------------------------- */
         svg{

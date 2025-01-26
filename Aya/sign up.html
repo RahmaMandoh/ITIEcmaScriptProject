@@ -28,15 +28,16 @@
             <h6>Welcome, please sign up to start your exam</h6>
         </div>
         <form action="" class="flex-col">
-           <div class="input-cont">
-            <label for="firstName">Last Name</label>
-            <input type="text" name="firstName" required>
-           </div>
-           <div class="input-cont">
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" required>
-           </div>
-
+            <div class="nameField">
+                <div id="firstName">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" required>
+                   </div>
+                   <div id="lastName">
+                    <label for="firstName">Last Name</label>
+                    <input type="text" name="firstName" required>
+                   </div>
+            </div>
            <div class="input-cont">
                <label for="email">E-mail</label>
                <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="email" required>
@@ -51,9 +52,6 @@
            </div>
            <input type="submit">
         </form>
-
-
-
     </div>
 </body>
 </html>

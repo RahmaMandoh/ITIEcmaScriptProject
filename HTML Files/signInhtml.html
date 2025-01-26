@@ -1,27 +1,66 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="../Style Sheet Files/signInStyle.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="../Style Sheet Files/Authontcation.css">
 </head>
 <body>
-    <div class="Container">
-        <div class="image"></div>
-        <div class="rightSide">
-            <div class="HeaderText">
-                <h1>Examination System</h1>
-                <h3>Welcome, please sign in to start your exam</h3>
+    <!-- this code is reapeated in each page  -->
+    <div class="notebook-paper flex-col">
+        <section class="container-hole">
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+            <section class="hole"></section>
+        </section>
+        <div class="torn-top"></div>
+
+        <!-- here put the content  -->
+        <div class="HeaderText">
+            <h1>Sign In</h1>
+            <h6>Welcome, please sign in to start your exam</h6>
+        </div>
+        <form id="signInForm" class="flex-col">
+            <div class="nameField">
+                <div id="firstName">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstNameInput" >
+                    <div class="error-message" id="firstNameEpmty">This field is empty</div>
+                    <div class="error-message" id="firstNameChar">Required characters only</div>
+                   </div>
+                   <div id="lastName">
+                    <label for="firstName">Last Name</label>
+                    <input type="text" name="firstName" id="lastNameInput">
+                    <div class="error-message" id="lastNameEpmty">This field is empty</div>
+                    <div></div>
+                   </div>
             </div>
-            
-            <form action="">
-                
-            </form>
+           <div class="input-cont">
+               <label for="email">E-mail</label>
+               <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="email" id="emailInput">
+               <div class="error-message" id="emailEpmty">This field is empty</div>
+           </div>
+           <div class="input-cont">
+               <label for="password">Password</label>
+               <input type="password" name="password" id="passwordInput">
+               <div class="error-message" id="passwordEpmty">This field is empty</div>
+           </div>
+           <div class="input-cont">
+               <label for="connfirmpassword">Confirm Password</label>
+               <input type="password" name="connfirmpassword" id="confirmPasswordInput">
+               <div class="error-message" id="confirmPasswordEpmty">This field is empty</div>
+           </div>
+           <!-- <input type="submit" name="Sign In"> -->
+            <button type="submit" id="signInButton">Sign In</button>
+        </form>
     </div>
-    </div>
+    <script src="../JavaScript Files/signIn.js"></script>
 </body>
 </html>
