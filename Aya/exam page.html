@@ -25,13 +25,23 @@
             width: 100%;
         }
         /*  */
-        #exam-time{
+        #exam-time span{
             font-family: "Cabin Sketch", serif;
-            float: left;
+            /* width: 100px; */
+            color: green;
+            font-size: 25px;
+        }
+        #exam-time{
+            text-align: left;
+            width: 100%;
+            padding: 10px;
         }
         #question{
+            margin-bottom: 10px;
+        }
+        .question-container{
             padding: 15px;
-            height: 300px;
+            min-height: 200px;
             width: 100%;
         }
         /*  */
@@ -49,7 +59,29 @@
         }
         .selected-tab{
             transform: translate(-20px);
-
+            transition: all 1s;
+        }
+        span:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        }
+        span{
+            font-family: "Cabin Sketch", serif;
+            font-size: 70px;
+        }
+        .controls{
+            cursor: pointer;
+        }
+        .choices input[type=radio]{
+            width: 20px;
+            height: 20px;
+        }
+        .choices label{
+            /* display: inline; */
+            width: 90%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
         }
     </style>
 </head>
@@ -69,21 +101,30 @@
         </section>
         <div class="torn-top"></div>
         <div class="tabs">
-            <div class="tab">1</div>
-            <div class="tab">2</div>
-            <div class="tab">3</div>
-            <div class="tab">4</div>
-            <div class="tab">5</div>
-            <div class="tab selected-tab">6</div>
-            <div class="tab">7</div>
-            <div class="tab">8</div>
-            <div class="tab">9</div>
-            <div class="tab">10</div>
+            <div class="tab selected-tab" id="0">1</div>
+            <div class="tab" id="1">2</div>
+            <div class="tab" id="2">3</div>
+            <div class="tab" id="3">4</div>
+            <div class="tab" id="4">5</div>
+            <div class="tab" id="5">6</div>
+            <div class="tab" id="6">7</div>
+            <div class="tab" id="7">8</div>
+            <div class="tab" id="8">9</div>
+            <div class="tab" id="9">10</div>
         </div>
         <!-- here put the content  -->
-        <div id="question">
-            <span id="exam-time">00:00</span>
+        
+         <div id="exam-time"><span>00:00</span></div>
 
-         </div>
+         <div class="question-container">
+            <div id="question">Loading...</div>
+            <div class="choices"></div>
+          </div>
+          <div class="controls">
+            <span id="prev" disabled><</span>
+            <span id="next">></span>
+          </div>
+
+          <script src="exam page.js"></script>
 </body>
 </html>

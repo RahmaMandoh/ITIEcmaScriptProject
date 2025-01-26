@@ -2,61 +2,51 @@
     {
         "question": "What does HTML stand for?",
         "choices": ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language"],
-        "correctAnswer": 0,
-        "flagged": false
+        "correctAnswer": 0
     },
     {
         "question": "Which tag is used to create a hyperlink in HTML?",
-        "choices": ["<a>", "<link>", "<href>"],
-        "correctAnswer": 0,
-        "flagged": false
+        "choices": ["&lta&gt", "&ltlink&gt", "&lthref&gt"],
+        "correctAnswer": 0
     },
     {
         "question": "Which CSS property is used to change the text color?",
         "choices": ["color", "background-color", "font-color"],
-        "correctAnswer": 0,
-        "flagged": false
+        "correctAnswer": 0
     },
     {
         "question": "What is the correct syntax for referring to an external JavaScript file?",
-        "choices": ["<script href='script.js'></script>", "<script src='script.js'></script>", "<script link='script.js'></script>"],
-        "correctAnswer": 1,
-        "flagged": false
+        "choices": ["&ltscript href='script.js'&gt&lt/script&gt", "&ltscript src='script.js'&gt&lt/script&gt", "&ltscript link='script.js'&gt&lt/script&gt"],
+        "correctAnswer": 1
     },
     {
         "question": "Which HTML element is used to specify a header for a section or page?",
-        "choices": ["<head>", "<header>", "<h1>"],
-        "correctAnswer": 1,
-        "flagged": false
+        "choices": ["&lthead&gt", "&ltheader&gt", "&lth1&gt"],
+        "correctAnswer": 1
     },
     {
         "question": "What is the default position value in CSS?",
         "choices": ["relative", "absolute", "static"],
-        "correctAnswer": 2,
-        "flagged": false
+        "correctAnswer": 2
     },
     {
         "question": "How can you add a comment in JavaScript?",
-        "choices": ["<!-- This is a comment -->", "// This is a comment", "/* This is a comment */"],
-        "correctAnswer": 1,
-        "flagged": false
+        "choices": ["&lt!-- This is a comment --&gt", "// This is a comment", "/* This is a comment */"],
+        "correctAnswer": 1
     },
     {
         "question": "Which CSS property is used to make text bold?",
         "choices": ["font-style", "font-weight", "text-decoration"],
-        "correctAnswer": 1,
-        "flagged": false
+        "correctAnswer": 1
     },
     {
         "question": "Which method can be used to select an element by its ID in JavaScript?",
         "choices": ["getElementByClassName", "getElementById", "querySelector"],
-        "correctAnswer": 1,
-        "flagged": false
+        "correctAnswer": 1
     },
     {
         "question": "Which of the following is NOT a valid JavaScript data type?",
         "choices": ["String", "Boolean", "Float"],
-        "correctAnswer": 2,
-        "flagged": false
+        "correctAnswer": 2
     }
 ]
