@@ -7,27 +7,26 @@ let currentIndex = 0;
       .then(data => {
         // Shuffle questions
         questions = data.sort(() => Math.random() - 0.5);
-        displayQuestion();
+        buildQuestions();
       })
       .catch(error => console.error('Error loading questions:', error));
 
-    // Display the current question
-    function displayQuestion() {
-      const questionElement = document.getElementById('question');
-      const choicesContainer = document.querySelector('.choices');
-      questionElement.textContent = questions[currentIndex]?.question || 'No questions available.';
-      // new emplementaion  
-        // const questionData = questions[currentIndex]?.question || 'No questions available.';
-        const choicesHTML = questions[currentIndex].choices.map((choice, i) =>
+    // 
+    function buildQuestions() {
+        const Container = document.querySelector('.question-container')
+        const questionElement = questions.map((ele,index)=>{
+            const questionHeading = ele.question ;
+            const choices = questions[index].choices.map((choice, i) =>
             `<label>
-                <input type="radio" name="choice" value="${i}">
+                <input type="radio" name="question${index}" value="${i}">
                 ${choice}
             </label>`).join("");
+            return `<div class="question hide" id="question${index}"><p>${questionHeading}</p><div class="choices">${choices}</div></div>`;
+        }).join("");
+         
 
-            choicesContainer.innerHTML = `${choicesHTML}`;
-            // questionElement.innerHTML = `
-            // <div class="question">${questionData.question}</div>
-            // <div class="choices">${choicesHTML}</div>`
+            Container.innerHTML = questionElement;
+            document.getElementById(`question${currentIndex}`).classList.toggle('hide');
         ;
 
 
@@ -40,9 +39,12 @@ let currentIndex = 0;
     document.getElementById('prev').addEventListener('click', () => {
         if (currentIndex > 0) {            
           document.getElementById(`${currentIndex}`).classList.toggle('selected-tab');
-        currentIndex--;
-        displayQuestion();
-        document.getElementById(`${currentIndex}`).classList.toggle('selected-tab');
+          document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+          
+          currentIndex--;
+          
+          document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+          document.getElementById(`${currentIndex}`).classList.toggle('selected-tab');
       }
     });
 
@@ -50,9 +52,12 @@ let currentIndex = 0;
         
         if (currentIndex < questions.length - 1) {
             document.getElementById(`${currentIndex}`).classList.remove('selected-tab');
-        currentIndex++;
-        displayQuestion();
-        document.getElementById(`${currentIndex}`).classList.add('selected-tab');
+            document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+            
+            currentIndex++;
+            
+            document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+            document.getElementById(`${currentIndex}`).classList.add('selected-tab');
 
       }
     });
