@@ -7,98 +7,95 @@ let confirmPassword = document.getElementById("confirmPasswordInput");
 let btn = document.getElementById("signInButton");
 var emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
+var fNamevalid = false;
+var lNameValid = false;
+var emailValid = false;
+var passwordValid = false;
+var confirmPassValid = false;
+var errorMessageFirstName = document.getElementById("errorMessageFirstName");
+var errorMessageLastName = document.getElementById("errorMessageLastName");
+var errorMessageEmail = document.getElementById("errorMessageEmail");
+var errorMessagePassword = document.getElementById("errorMessagePassword");
+var errorMessageConf = document.getElementById("errorMessageConf");
 
 btn.addEventListener("click", function(event){
     event.preventDefault();
     
     // First name validation
-    if (firstName.value.trim() === "") {
-        clearError("firstNameInput", "firstNameChar");
-        clearError("firstNameInput", "firstNameLen");
-        showError("firstNameInput", "firstNameEpmty");
-    } else if (isFinite(firstName.value.trim())) {
-        clearError("firstNameInput", "firstNameEpmty");
-        clearError("firstNameInput", "firstNameLen");
-        showError("firstNameInput", "firstNameChar");
-    }else if (firstName.value.trim().length < 2) {
-        clearError("firstNameInput", "firstNameEpmty");
-        clearError("firstNameInput", "firstNameChar");
-        showError("firstNameInput", "firstNameLen");
-    } else {
-        clearError("firstNameInput", "firstNameEpmty");
-        clearError("firstNameInput", "firstNameChar");
-        clearError("firstNameInput", "firstNameLen");
-    }
-
+    firstNamevalidation(firstName);
+    
     // Last name validation
-    if (lastName.value.trim() === "") {
-        clearError("lastNameInput", "lastNameChar");
-        clearError("lastNameInput", "lastNameLen");
-        showError("lastNameInput", "lastNameEpmty");
-    } else if (isFinite(lastName.value.trim())) {
-        clearError("lastNameInput", "lastNameEpmty");
-        clearError("lastNameInput", "lastNameLen");
-        showError("lastNameInput", "lastNameChar");
-    }else if (lastName.value.trim().length < 2) {
-        clearError("lastNameInput", "lastNameEpmty");
-        clearError("lastNameInput", "lastNameChar");
-        showError("lastNameInput", "lastNameLen");
-    } else {
-        clearError("lastNameInput", "lastNameEpmty");
-        clearError("lastNameInput", "lastNameChar");
-        clearError("lastNameInput", "lastNameLen");
-    }
+    lastNamevalidation(lastName);
 
-    // // Email validation
-    if(email.value.trim() === ""){
-        clearError("emailInput", "invalidEmail");
-        showError("emailInput", "emailEpmty");
-    }else if(!emailReg.test(email.value.trim())){
-        clearError("emailInput", "emailEpmty");
-        showError("emailInput", "invalidEmail");
-    }else{
-        clearError("emailInput", "emailEpmty");
-        clearError("emailInput", "invalidEmail");
-    }
+    // Email validation
+    emailValidation(email);
     
-    // // Password validation
-    if(password.value.trim() === ""){
-        clearError("passwordInput", "weakPassword");
-        showError("passwordInput", "passwordEpmty");
-    }else if (!strongPasswordRegex.test(passwordInput.value.trim())) {
-        clearError("passwordInput", "passwordEpmty");
-        showError("passwordInput", "weakPassword"); 
-    }else{
-        clearError("passwordInput", "passwordEpmty");
-        clearError("passwordInput", "weakPassword");
-    }
+    // Password validation
+    passwordValidation(password);
     
-    // // Confirm password validation
-    if (confirmPassword.value.trim() === "") {
-        clearError("confirmPasswordInput", "passwordMismatch");
-        showError("confirmPasswordInput", "confirmPasswordEpmty"); 
-    } else if (confirmPassword.value.trim() !== passwordInput.value.trim()) {
-        clearError("confirmPasswordInput", "confirmPasswordEpmty");
-        showError("confirmPasswordInput", "passwordMismatch"); 
-    } else {
-        clearError("confirmPasswordInput", "confirmPasswordEpmty");
-        clearError("confirmPasswordInput", "passwordMismatch");
-    }
+    // Confirm password validation
+    confirmPassValidation(confirmPassword);
 
     console.log("Sign In button clicked!");
 });
 
-function showError(inputId, errorId) {
-    const input = document.getElementById(inputId);
-    const error = document.getElementById(errorId);
-    input.classList.add("input-error");
-    error.style.display = "block";
+function firstNamevalidation(nameInput) {
+    if (nameInput.value.trim() === "") {
+        errorMessageFirstName.textContent = "Filed is required";
+    } else if (isFinite(nameInput.value.trim())) {
+        errorMessageFirstName.textContent = "Required characters only";
+    } else if (nameInput.value.trim().length < 2){
+        errorMessageFirstName.textContent = "Length more than 2";
+    } else {
+        errorMessageFirstName.textContent = "";
+        fNamevalid = true;
+    }  
 }
 
-function clearError(inputId, errorId) {
-    const input = document.getElementById(inputId);
-    const error = document.getElementById(errorId);
-    input.classList.remove("input-error"); 
-    error.style.display = "none"; 
+function lastNamevalidation(nameInput) {
+    if (nameInput.value.trim() === "") {
+        errorMessageLastName.textContent = "Filed is required";
+    } else if (isFinite(nameInput.value.trim())) {
+        errorMessageLastName.textContent = "Required characters only";
+    } else if (nameInput.value.trim().length < 2){
+        errorMessageLastName.textContent = "Length more than 2";
+    } else {
+        errorMessageLastName.textContent = "";
+        lNamevalid = true;
+    }  
+}
+
+function emailValidation(mail){
+    if(mail.value.trim() === ""){
+        errorMessageEmail.textContent = "Filed is required";
+    }else if(!emailReg.test(mail.value.trim())){
+        errorMessageEmail.textContent = "Invalid email";
+    }else{
+        errorMessageEmail.textContent = "";
+        emailValid = true;
+    }
+}
+
+function passwordValidation(pass){
+    if(pass.value.trim() === ""){
+        errorMessagePassword.textContent = "Filed is required";
+    }else if (!strongPasswordRegex.test(pass.value.trim())) {
+        errorMessagePassword.textContent = `Password must be at least 8 characters long,
+                                        include a number,an uppercase letter, 
+                                        a lowercase letter, and a special character`;
+    }else{
+        errorMessagePassword.textContent = "";
+        passwordValid = true;
+    }
+}
+
+function confirmPassValidation(confPass){
+    if (confPass.value.trim() === "") {
+        errorMessageConf.textContent = "Filed is required";
+    } else if (confPass.value.trim() !== passwordInput.value.trim()) {
+        errorMessageConf.textContent = "Passwords do not match";
+    } else {
+        errorMessageConf.textContent = "";
+        confirmPassValid = true;
+    }
 }

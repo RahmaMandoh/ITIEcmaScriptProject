@@ -27,7 +27,6 @@ let currentIndex = 0;
 
             Container.innerHTML = questionElement;
             document.getElementById(`question${currentIndex}`).classList.toggle('hide');
-        ;
 
 
       // Enable/disable buttons based on the current index
