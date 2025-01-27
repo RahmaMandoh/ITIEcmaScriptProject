@@ -8,6 +8,7 @@ let currentIndex = 0;
         // Shuffle questions
         questions = data.sort(() => Math.random() - 0.5);
         buildQuestions();
+        startCountdown(3 * 60);
       })
       .catch(error => console.error('Error loading questions:', error));
 
@@ -61,3 +62,24 @@ let currentIndex = 0;
 
       }
     });
+
+    function startCountdown(durationInSeconds) {
+      const timerSpan = document.querySelector("#exam-time span");
+      let remainingTime = durationInSeconds;
+
+      const intervalId = setInterval(() => {
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
+
+        // Update the span with the formatted time
+        timerSpan.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+        // If the countdown reaches zero, stop the timer and show an alert
+        if (remainingTime === 0) {
+          clearInterval(intervalId);
+          alert("Time's up!");
+        }
+
+        remainingTime--;
+      }, 1000);
+    }
