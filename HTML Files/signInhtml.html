@@ -32,30 +32,28 @@
                 <div id="firstName">
                     <label for="firstName">First Name</label>
                     <input type="text" name="firstName" id="firstNameInput" >
-                    <div class="error-message" id="firstNameEpmty">This field is empty</div>
-                    <div class="error-message" id="firstNameChar">Required characters only</div>
+                    <div class="error-message" id="errorMessageFirstName"></div>
                    </div>
                    <div id="lastName">
                     <label for="firstName">Last Name</label>
                     <input type="text" name="firstName" id="lastNameInput">
-                    <div class="error-message" id="lastNameEpmty">This field is empty</div>
-                    <div></div>
+                    <div class="error-message" id="errorMessageLastName"></div>
                    </div>
             </div>
            <div class="input-cont">
                <label for="email">E-mail</label>
                <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="email" id="emailInput">
-               <div class="error-message" id="emailEpmty">This field is empty</div>
+               <div class="error-message" id="errorMessageEmail"></div>
            </div>
            <div class="input-cont">
                <label for="password">Password</label>
                <input type="password" name="password" id="passwordInput">
-               <div class="error-message" id="passwordEpmty">This field is empty</div>
+               <div class="error-message" id="errorMessagePassword"></div>
            </div>
            <div class="input-cont">
                <label for="connfirmpassword">Confirm Password</label>
                <input type="password" name="connfirmpassword" id="confirmPasswordInput">
-               <div class="error-message" id="confirmPasswordEpmty">This field is empty</div>
+               <div class="error-message" id="errorMessageConf"></div>
            </div>
            <!-- <input type="submit" name="Sign In"> -->
             <button type="submit" id="signInButton">Sign In</button>

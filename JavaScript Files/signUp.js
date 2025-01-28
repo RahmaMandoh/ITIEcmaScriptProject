@@ -7,21 +7,27 @@ btn.addEventListener("click", function(event){
     event.preventDefault();
     
     // Email validation
-    if(email.value == ""){
-        console.log("This field is empty");
+    if(email.value.trim() === ""){
+        clearError("emailInput", "invalidEmail");
         showError("emailInput", "emailEpmty");
+    }else if(!emailReg.test(email.value.trim())){
+        clearError("emailInput", "emailEpmty");
+        showError("emailInput", "invalidEmail");
     }else{
-        clearErrors();
-        console.log("This field is not empty")
+        clearError("emailInput", "emailEpmty");
+        clearError("emailInput", "invalidEmail");
     }
     
     // Password validation
-    if(password.value == ""){
-        console.log("This field is empty");
+    if(password.value.trim() === ""){
+        clearError("passwordInput", "weakPassword");
         showError("passwordInput", "passwordEpmty");
+    }else if (!strongPasswordRegex.test(passwordInput.value.trim())) {
+        clearError("passwordInput", "passwordEpmty");
+        showError("passwordInput", "weakPassword"); 
     }else{
-        clearErrors();
-        console.log("This field is not empty")
+        clearError("passwordInput", "passwordEpmty");
+        clearError("passwordInput", "weakPassword");
     }
 
     console.log("Sign up button clicked!");
@@ -34,10 +40,9 @@ function showError(inputId, errorId) {
     error.style.display = "block";
 }
 
-function clearErrors() {
-    const inputs = document.querySelectorAll(".input-error");
-    const errors = document.querySelectorAll(".error-message");
-
-    inputs.forEach(input => input.classList.remove("input-error"));
-    errors.forEach(error => (error.style.display = "none"));
+function clearError(inputId, errorId) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    input.classList.remove("input-error"); 
+    error.style.display = "none"; 
 }
