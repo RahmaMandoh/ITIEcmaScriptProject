@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
         .spiral{
@@ -47,8 +48,9 @@
         /*  */
         .tabs{
             position: absolute;
-            left: -25px;
-            z-index: -1;
+            left: 24%;
+            /* z-index: -1; */
+            cursor: pointer;
         }
         .tab{
             width: 50px;
@@ -62,7 +64,7 @@
             transition: all 1s;
         }
         span:disabled {
-        background-color: #ccc;
+        color: #ccc;
         cursor: not-allowed;
         }
         span{
@@ -71,7 +73,20 @@
         }
         .controls{
             cursor: pointer;
+            width: 50%;
+            padding: 0;
+            /* height: 40px; */
+
         }
+        .bottom-section{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            /* height: 40px; */
+        }
+            
         .choices input[type=radio]{
             width: 20px;
             height: 20px;
@@ -86,10 +101,40 @@
         .hide{
             display: none;
         }
+        /*  */
+        #submit{
+            width: 20%;
+            font-size: 18px;
+        }
+        i{
+            width: 30px;
+            font-size: 20px;
+        }
+        .myflag{
+            color: black;
+            position: absolute;
+            right: 30px;
+            top: 32px;
+        }
+        .flagged-tab{
+            background-color: coral;
+        }
     </style>
 </head>
 <body>
     <!-- this code is reapeated in each page  -->
+    <div class="tabs">
+        <div class="tab selected-tab" id="0">1</div>
+        <div class="tab" id="1">2</div>
+        <div class="tab" id="2">3</div>
+        <div class="tab" id="3">4</div>
+        <div class="tab" id="4">5</div>
+        <div class="tab" id="5">6</div>
+        <div class="tab" id="6">7</div>
+        <div class="tab" id="7">8</div>
+        <div class="tab" id="8">9</div>
+        <div class="tab" id="9">10</div>
+    </div>
     <div class="notebook-paper flex-col">
         <section class="spirals">
             <section class="spiral"></section>
@@ -103,29 +148,22 @@
             <section class="spiral"></section>
         </section>
         <div class="torn-top"></div>
-        <div class="tabs">
-            <div class="tab selected-tab" id="0">1</div>
-            <div class="tab" id="1">2</div>
-            <div class="tab" id="2">3</div>
-            <div class="tab" id="3">4</div>
-            <div class="tab" id="4">5</div>
-            <div class="tab" id="5">6</div>
-            <div class="tab" id="6">7</div>
-            <div class="tab" id="7">8</div>
-            <div class="tab" id="8">9</div>
-            <div class="tab" id="9">10</div>
-        </div>
         <!-- here put the content  -->
         
-         <div id="exam-time"><span>03:00</span></div>
+         <div id="exam-time">
+            <i class="fa-regular fa-clock"></i><span>03:00</span>
+        </div>
          
          <div class="question-container">
             <div>Loading...</div>
             
           </div>
-          <div class="controls">
-            <span id="prev" disabled><</span>
-            <span id="next">></span>
+          <div class="bottom-section">
+            <div class="controls">
+                <span id="prev" disabled><</span>
+                <span id="next">></span>
+            </div>
+            <button id="submit">submit</button>
           </div>
 
           <script src="exam page.js"></script>

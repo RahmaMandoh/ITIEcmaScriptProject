@@ -1,5 +1,13 @@
 let questions = [];
 let currentIndex = 0;
+let QuizQuestions = [];
+
+class QuizQuestion {
+  constructor(question, choices, correctAnswer) {
+    this.question = question;
+    this.choices = choices;
+    this.correctAnswer = correctAnswer;
+  }}
 
     // Fetch questions from the JSON file
     fetch('../jsonFileQS.json')
@@ -7,6 +15,13 @@ let currentIndex = 0;
       .then(data => {
         // Shuffle questions
         questions = data.sort(() => Math.random() - 0.5);
+        // here to create objects for questions
+        questions.forEach(e => {
+          let q = new QuizQuestion(e.question,e.choices,e.correctAnswer);
+          QuizQuestions.push(q);
+        });
+          console.log(QuizQuestions);
+
         buildQuestions();
         startCountdown(3 * 60);
       })
@@ -22,7 +37,7 @@ let currentIndex = 0;
                 <input type="radio" name="question${index}" value="${i}">
                 ${choice}
             </label>`).join("");
-            return `<div class="question hide" id="question${index}"><p>${questionHeading}</p><div class="choices">${choices}</div></div>`;
+            return `<div class="question hide" id="question${index}"><i class="fa-regular fa-flag myflag" id="${index}flag"></i><p>${questionHeading}</p><div class="choices">${choices}</div></div>`;
         }).join("");
          
 
@@ -72,6 +87,10 @@ let currentIndex = 0;
 
         // Update the span with the formatted time
         timerSpan.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        //change the color of it
+        if (remainingTime === 30) {
+          timerSpan.style.color = "red";
+        }
 
         // If the countdown reaches zero, stop the timer and show an alert
         if (remainingTime === 0) {
@@ -80,5 +99,71 @@ let currentIndex = 0;
         }
 
         remainingTime--;
-      }, 1000);
+      }, 1000)
     }
+
+    //navigating from the tabs
+    const tabsContainer = document.querySelector(".tabs");
+    console.log(tabsContainer);
+    
+    // Add a click event listener to the parent div
+    tabsContainer.addEventListener("click", (event) => {
+      // Check if the clicked element is a child with the class "tab"
+      
+      if (event.target.classList.contains("tab")) {
+        const clickedTabId = event.target.id; // Get the id of the clicked tab
+        console.log(`Clicked Tab ID: ${clickedTabId}`);
+
+            document.getElementById(`${currentIndex}`).classList.remove('selected-tab');
+            document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+            
+            currentIndex = clickedTabId;
+            
+            document.getElementById(`question${currentIndex}`).classList.toggle('hide');
+            document.getElementById(`${currentIndex}`).classList.add('selected-tab');
+
+      }
+    });
+
+    //handling flag
+    //<i class="fa-regular fa-flag myflag" id="${index}flag"></i>
+    //<i class="fa-solid fa-flag"></i>
+    document.querySelector('.question-container').addEventListener('click',function(e){
+      if (e.target.tagName === "I" && e.target.classList.contains("fa-flag")) {
+        const icon = e.target;
+        const iconId = parseInt(e.target.id);
+        console.log("icon clicked " + iconId);
+        if (icon.classList.contains("fa-regular")) {
+          icon.classList.remove("fa-regular");
+          icon.classList.add("fa-solid");
+          //select the tab
+          document.getElementById(`${iconId}`).classList.add('flagged-tab');
+          
+        }else{
+          icon.classList.remove("fa-solid");
+          icon.classList.add("fa-regular");
+          document.getElementById(`${iconId}`).classList.remove('flagged-tab');
+
+        }
+      }
+    })
+    ///score
+    document.getElementById('submit').addEventListener('click', function(){
+      console.log('submitted');
+      let score = 0;
+      //name="question${index}" value="${i}
+      // let answer = document.querySelector('input[name=question0]:checked').value
+      // console.log(`your value is ${answer}`);
+      // console.log(questions[0].correctAnswer);
+      questions.forEach((e,i) => {
+        
+      let answer = document.querySelector(`input[name=question${i}]:checked`).value;
+      console.log(answer);
+      
+        if(answer == e.correctAnswer){
+          console.log("true");
+          score++;
+        }
+      });
+      alert(`your score is ${score} out of 10`);
+    })
