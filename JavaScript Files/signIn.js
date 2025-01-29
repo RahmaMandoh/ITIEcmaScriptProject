@@ -36,6 +36,23 @@ btn.addEventListener("click", function(event){
     // Confirm password validation
     confirmPassValidation(confirmPassword);
 
+    // Check if all validations passed
+    if (fNamevalid && lNamevalid && emailValid && passwordValid && confirmPassValid) {
+        // Save user data in localStorage
+        const userData = {
+            firstName: firstName.value.trim(),
+            lastName: lastName.value.trim(),
+            email: email.value.trim(),
+            password: password.value.trim() // Note: Storing passwords in plain text is not secure. Use encryption or hash if needed.
+        };
+        localStorage.setItem("userInfo", JSON.stringify(userData));
+        
+        console.log("User information saved:", userData);
+        alert("User information saved successfully!");
+    } else {
+        alert("Please fix the errors in the form before submitting.");
+    }
+    
     console.log("Sign In button clicked!");
 });
 
