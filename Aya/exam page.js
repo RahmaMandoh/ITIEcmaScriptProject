@@ -157,13 +157,17 @@ class QuizQuestion {
       // console.log(questions[0].correctAnswer);
       questions.forEach((e,i) => {
         
-      let answer = document.querySelector(`input[name=question${i}]:checked`).value;
+      //try{
+        let answer = document.querySelector(`input[name=question${i}]:checked`).value;
       console.log(answer);
       
         if(answer == e.correctAnswer){
           console.log("true");
           score++;
         }
+      // }catch(err){
+      //   alert("did you answer all your questions ?")
+      // }
       });
       alert(`your score is ${score} out of 10`);
     })
