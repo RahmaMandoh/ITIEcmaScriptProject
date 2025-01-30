@@ -244,3 +244,16 @@ align-items: center;
         opacity: 1;
     }
 }
+/* ------------------------------------- Errors --------------------------- */
+
+.Logo{
+    text-align: center;
+    padding: 10px 0;
+    font-size: 50px;
+    animation: Logo 1s linear infinite alternate;
+}
+
+@keyframes Logo {
+    0% { transform: translateX(-5px) rotate(-5deg); }
+    100% { transform: translateX(5px) rotate(5deg); }
+}

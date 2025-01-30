@@ -1,7 +1,7 @@
-let form = document.getElementById("signUpForm");
+let form = document.getElementById("signInForm");
 let email = document.getElementById("emailInput");
 let password = document.getElementById("passwordInput");
-let btn = document.getElementById("signUpButton");
+let btn = document.getElementById("signInButton");
 
 btn.addEventListener("click", function(event){
     event.preventDefault();

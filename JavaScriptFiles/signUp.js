@@ -1,10 +1,10 @@
-let form = document.getElementById("signInForm");
+let form = document.getElementById("signUpForm");
 let firstName = document.getElementById("firstNameInput");
 let lastName = document.getElementById("lastNameInput");
 let email = document.getElementById("emailInput");
 let password = document.getElementById("passwordInput");
 let confirmPassword = document.getElementById("confirmPasswordInput");
-let btn = document.getElementById("signInButton");
+let btn = document.getElementById("signUpButton");
 var emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 var fNamevalid = false;
@@ -17,6 +17,8 @@ var errorMessageLastName = document.getElementById("errorMessageLastName");
 var errorMessageEmail = document.getElementById("errorMessageEmail");
 var errorMessagePassword = document.getElementById("errorMessagePassword");
 var errorMessageConf = document.getElementById("errorMessageConf");
+
+
 
 btn.addEventListener("click", function(event){
     event.preventDefault();
@@ -38,22 +40,16 @@ btn.addEventListener("click", function(event){
 
     // Check if all validations passed
     if (fNamevalid && lNamevalid && emailValid && passwordValid && confirmPassValid) {
-        // Save user data in localStorage
-        const userData = {
-            firstName: firstName.value.trim(),
-            lastName: lastName.value.trim(),
-            email: email.value.trim(),
-            password: password.value.trim() // Note: Storing passwords in plain text is not secure. Use encryption or hash if needed.
-        };
-        localStorage.setItem("userInfo", JSON.stringify(userData));
+        // Save user data in localStorage as an array
         
-        console.log("User information saved:", userData);
+        // console.log("User information saved:", userData);
         alert("User information saved successfully!");
+        window.location.href = "../HTMLFiles/signInhtml.html";
     } else {
         alert("Please fix the errors in the form before submitting.");
     }
     
-    console.log("Sign In button clicked!");
+    console.log("Sign Up button clicked!");
 });
 
 function firstNamevalidation(nameInput) {
