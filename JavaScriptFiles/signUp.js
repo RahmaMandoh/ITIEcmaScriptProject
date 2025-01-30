@@ -1,3 +1,5 @@
+// import { userArray } from "./startPage.js"; 
+
 let form = document.getElementById("signUpForm");
 let firstName = document.getElementById("firstNameInput");
 let lastName = document.getElementById("lastNameInput");
@@ -17,8 +19,7 @@ var errorMessageLastName = document.getElementById("errorMessageLastName");
 var errorMessageEmail = document.getElementById("errorMessageEmail");
 var errorMessagePassword = document.getElementById("errorMessagePassword");
 var errorMessageConf = document.getElementById("errorMessageConf");
-
-
+var userArray = JSON.parse(localStorage.getItem("Users")) || [];
 
 btn.addEventListener("click", function(event){
     event.preventDefault();
@@ -40,11 +41,27 @@ btn.addEventListener("click", function(event){
 
     // Check if all validations passed
     if (fNamevalid && lNamevalid && emailValid && passwordValid && confirmPassValid) {
+
         // Save user data in localStorage as an array
+        let user = {
+            NFirst : firstName.value,
+            NLast : lastName.value,
+            Email : email.value,
+            Pass : password.value
+        }
+
+        //Check if the user is already saved at the local storage
+        let found = userArray.find(item => item.Email === user.Email)
+        if(!found){
+            userArray.push(user);
+            console.log(userArray);
+            localStorage.setItem("Users", JSON.stringify(userArray));
+            alert("User information saved successfully!");
+            window.location.replace("../HTMLFiles/signInhtml.html");
+        }else{
+            console.log("User is already saved at the local storage");
+        }
         
-        // console.log("User information saved:", userData);
-        alert("User information saved successfully!");
-        window.location.href = "../HTMLFiles/signInhtml.html";
     } else {
         alert("Please fix the errors in the form before submitting.");
     }

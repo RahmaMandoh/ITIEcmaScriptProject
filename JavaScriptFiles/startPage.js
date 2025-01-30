@@ -1,3 +1,4 @@
 setTimeout(function() {
-    window.location.href = "../HTMLFiles/chooseToUpInhtml.html";
+    window.location.href = "../HTMLFiles/signInhtml.html";
 }, 5000);
+
