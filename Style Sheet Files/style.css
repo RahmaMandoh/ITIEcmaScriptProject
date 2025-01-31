@@ -11,6 +11,7 @@
             min-height: 100vh;
             background: #f5f5f5;
             font-family: "Montserrat", serif;
+            color: #014465;
 
         }
         h1{
@@ -19,7 +20,10 @@
             color: #002233;
         }
         /* -------------------------------------creating notebook paper--------------------------- */
-        
+        .container-big {
+            display: flex;
+            align-items: center;
+        }
         .notebook-paper {
             width: 600px;
             padding: 20px;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Exam Result</title>
     <link rel="stylesheet" href="../Style Sheet Files/Authontcation.css">
 </head>
 <body>
@@ -24,13 +24,48 @@
 
         <!-- here put the content  -->
         
-    <lord-icon
-        src="https://cdn.lordicon.com/hlpsxaub.json"
-        trigger="loop"
-        delay="2000"
-        colors="primary:#faddd1,secondary:#110a5c"
-        style="width:250px;height:250px">
-    </lord-icon>
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <h1>Well done!<br/>You have successfully passed</h1>
+            <h6>Congratulations! <span id="userName"></span></h6>
+            <h6>Your result is: <span id="userScore"></span></h6>
+            <lord-icon
+                src="https://cdn.lordicon.com/hlpsxaub.json"
+                trigger="loop"
+                delay="2000"
+                colors="primary:#faddd1,secondary:#110a5c"
+                style="width:250px;height:250px">
+            </lord-icon>
+            
+            <h6>Do you want to try again!</h6>
+            <button id="resolveBtn">Try Again</button>
+            <p><a id="logOut" href="#">Log out</a></p>
+            
+            <audio id="myAudio">
+                <source src="../Sounds/Bravo.mp3" type="audio/mpeg">
+            </audio>
+        
+        
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <script>
+            var resolveBtn = document.getElementById("resolveBtn");
+            var userScore = document.getElementById("userScore");
+            var logOut = document.getElementById("logOut");
+            var userName = document.getElementById("userName");
+            userName.innerText = `${localStorage.getItem("firstName")} ${localStorage.getItem("lastName")}`;
+            logOut.addEventListener("click", function(e){
+                window.location.replace("../HTMLFiles/signInhtml.html");
+            });
+            userScore.innerText = `${localStorage.getItem("score")}/10`;
+            window.addEventListener("load", function () {
+                let audio = document.getElementById("myAudio");
+        
+                setTimeout(() => {
+                    // audio.muted = false; 
+                    audio.play();
+                }, 500);
+            });
+            resolveBtn.addEventListener("click", function(e){
+                window.location.replace("../HTMLFiles/examPage.html");
+            });
+        </script>
 </body>
 </html>

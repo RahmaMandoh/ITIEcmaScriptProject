@@ -38,11 +38,12 @@
 }
 /*  */
 .tabs{
-    position: absolute;
-    left: 24%;
-    /* z-index: -1; */
+    position: relative;
+    /* z-index: -1;  */
     cursor: pointer;
+    transform: translateX(24px);
 }
+
 .tab{
     width: 50px;
     height: 30px;
@@ -102,10 +103,11 @@ i{
     font-size: 20px;
 }
 .myflag{
-    color: black;
+    color: #014465;
     position: absolute;
     right: 30px;
     top: 32px;
+    font-size: 30px;
 }
 .flagged-tab{
     background-color: coral;

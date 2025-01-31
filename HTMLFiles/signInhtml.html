@@ -39,7 +39,7 @@
                 <input type="password" name="password" id="passwordInput">
             </div>
            <button type="submit" id="signInButton">Sign In</button>
-           <p>Don't have account? <a href="signUphtml.html">Sign Up</a></p>
+           <p>Don't have account? <a id="upLink" href="#">Sign Up</a></p>
         </form>
     </div>
     <!-- sticky note -->
@@ -48,5 +48,11 @@
             
         </div>
     <script src="../JavaScriptFiles/signIn.js"></script>
+    <script>
+        var upLink = document.getElementById("upLink");
+        upLink.addEventListener("click", function(e){
+            window.location.replace("../HTMLFiles/signUphtml.html");
+        });
+    </script>
 </body>
 </html>

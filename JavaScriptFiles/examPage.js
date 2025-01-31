@@ -95,7 +95,8 @@ class QuizQuestion {
         // If the countdown reaches zero, stop the timer and show an alert
         if (remainingTime === 0) {
           clearInterval(intervalId);
-          alert("Time's up!");
+          // alert("Time's up!");
+          window.location.replace("../HTMLFiles/timeOut.html");
         }
 
         remainingTime--;
@@ -167,6 +168,12 @@ class QuizQuestion {
       }
       
       });
-    
-      alert(`your score is ${score} out of 10`);
+      // alert(`your score is ${score} out of 10`);
+      if(score >= 5){
+        localStorage.setItem("score", score);
+        window.location.replace("../HTMLFiles/success.html");
+      }else{
+        window.location.replace("../HTMLFiles/Failier.html");
+        localStorage.setItem("score",score);
+      }
     })

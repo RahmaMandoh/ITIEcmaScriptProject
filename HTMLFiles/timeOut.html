@@ -26,7 +26,7 @@
         <!-- here put the content  -->
         <div class="HeaderText">
             <h1>Time is Out!</h1>
-            <h6>Please try again</h6>
+            <h6> <span id="userName"></span> please try again</h6>
         </div>
         <div class="clock">
             <div class="hand hour"></div>
@@ -34,8 +34,28 @@
             <div class="hand second"></div>
         </div>
         <div class="shadow"></div>
-        <button>Try Again</button>
+        <button id="resolveBtn">Try Again</button>
+        <p><a id="logOut" href="#">Log out</a></p>
+        <audio id="myAudio">
+            <source src="../Sounds/tic-tac.mp3" type="audio/mpeg">
+        </audio>
     </div>
-    <!-- <script src=""></script> -->
+    <script>
+        var resolveBtn = document.getElementById("resolveBtn");
+        var logOut = document.getElementById("logOut");
+        var userName = document.getElementById("userName");
+        userName.innerText = `${localStorage.getItem("firstName")} ${localStorage.getItem("lastName")},`;
+        upLink
+        resolveBtn.addEventListener("click", function(e){
+            window.location.replace("../HTMLFiles/examPage.html");
+        });
+        window.addEventListener("load", function () {
+            let audio = document.getElementById("myAudio");
+        
+            setTimeout(() => { 
+                audio.play();
+            }, 500);
+        });
+    </script>
 </body>
 </html>

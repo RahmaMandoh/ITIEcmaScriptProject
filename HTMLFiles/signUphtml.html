@@ -58,6 +58,7 @@
            </div>
            <!-- <input type="submit" name="Sign In"> -->
             <button type="submit" id="signUpButton">Sign Up</button>
+            <p>Already have account? <a id="inLink" href="#">Sign In</a></p>
         </form>
     </div>
     <!-- sticky note -->
@@ -69,5 +70,12 @@
 
     </div>
     <script src="../JavaScriptFiles/signUp.js"></script>
+    <script>
+        var inLink = document.getElementById("inLink");
+        inLink.addEventListener("click", function(e){
+            window.location.replace("../HTMLFiles/signInhtml.html");
+        });
+    </script>
+    
 </body>
 </html>
