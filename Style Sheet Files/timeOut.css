@@ -1,11 +1,13 @@
 .clock {
     width: 200px;
     height: 200px;
-    border: 10px solid #014465;
+    border: 10px solid black;
     border-radius: 50%;
     position: relative;
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 20px;
+    animation: jump 1s ease-in-out infinite;
 }
 
 .hand {
@@ -43,3 +45,16 @@
     from { transform: translateX(-50%) rotate(0deg); }
     to { transform: translateX(-50%) rotate(360deg); }
 }
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+}
+/* .HeaderTextYimeOut{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+} */

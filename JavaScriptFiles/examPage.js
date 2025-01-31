@@ -37,7 +37,7 @@ class QuizQuestion {
                 <input type="radio" name="question${index}" value="${i}">
                 ${choice}
             </label>`).join("");
-            return `<div class="question hide" id="question${index}"><i class="fa-regular fa-flag myflag" id="${index}flag"></i><p>${questionHeading}</p><div class="choices">${choices}</div></div>`;
+            return `<div class="question hide" id="question${index}"><i class="fa-regular fa-flag myflag" id="${index}flag"></i><h3>${questionHeading}</h3><div class="choices">${choices}</div></div>`;
         }).join("");
          
 

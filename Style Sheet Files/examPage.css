@@ -1,0 +1,112 @@
+.spiral{
+    width: 10px;
+    height: 50px;
+    background: #f4f4f4;
+    border: 2px solid #bbb;
+    border-radius: 100px;
+    box-shadow: inset 2px 2px 4px rgba(99, 186, 207, 0.733);
+}
+.spirals{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: absolute;
+    z-index: 3;
+    top: -35px;
+    left: 0;
+    width: 100%;
+}
+/*  */
+#exam-time span{
+    font-family: "Cabin Sketch", serif;
+    /* width: 100px; */
+    color: green;
+    font-size: 25px;
+}
+#exam-time{
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+}
+#question{
+    margin-bottom: 10px;
+}
+.question-container{
+    padding: 15px;
+    min-height: 200px;
+    width: 100%;
+}
+/*  */
+.tabs{
+    position: absolute;
+    left: 24%;
+    /* z-index: -1; */
+    cursor: pointer;
+}
+.tab{
+    width: 50px;
+    height: 30px;
+    padding: 1px;
+    background-color: rgb(241, 241, 170);
+    border: 1px solid #bbb;
+}
+.selected-tab{
+    transform: translate(-20px);
+    transition: all 1s;
+}
+span:disabled {
+color: #ccc;
+cursor: not-allowed;
+}
+span{
+    font-family: "Cabin Sketch", serif;
+    font-size: 70px;
+}
+.controls{
+    cursor: pointer;
+    width: 50%;
+    padding: 0;
+    /* height: 40px; */
+
+}
+.bottom-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    /* height: 40px; */
+}
+    
+.choices input[type=radio]{
+    width: 20px;
+    height: 20px;
+}
+.choices label{
+    /* display: inline; */
+    width: 90%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.hide{
+    display: none;
+}
+/*  */
+#submit{
+    width: 20%;
+    font-size: 18px;
+}
+i{
+    width: 30px;
+    font-size: 20px;
+}
+.myflag{
+    color: black;
+    position: absolute;
+    right: 30px;
+    top: 32px;
+}
+.flagged-tab{
+    background-color: coral;
+}
