@@ -37,7 +37,7 @@ class QuizQuestion {
                 <input type="radio" name="question${index}" value="${i}">
                 ${choice}
             </label>`).join("");
-            return `<div class="question hide" id="question${index}"><i class="fa-regular fa-flag myflag" id="${index}flag"></i><h3>${questionHeading}</h3><div class="choices">${choices}</div></div>`;
+            return `<div class="question hide" id="question${index}"><i class="fa-regular fa-flag myflag" id="${index}flag"></i><h4>${questionHeading}</h4><div class="choices">${choices}</div></div>`;
         }).join("");
          
 
@@ -151,23 +151,22 @@ class QuizQuestion {
     document.getElementById('submit').addEventListener('click', function(){
       console.log('submitted');
       let score = 0;
-      //name="question${index}" value="${i}
-      // let answer = document.querySelector('input[name=question0]:checked').value
-      // console.log(`your value is ${answer}`);
-      // console.log(questions[0].correctAnswer);
+      
       questions.forEach((e,i) => {
         
-      //try{
-        let answer = document.querySelector(`input[name=question${i}]:checked`).value;
-      console.log(answer);
+        let radio = document.querySelector(`input[name=question${i}]:checked`);
+        if(radio){
+        let answer = radio.value;
+
+        console.log(answer);
+        
+          if(answer == e.correctAnswer){
+            console.log("true");
+            score++;
+          }
+      }
       
-        if(answer == e.correctAnswer){
-          console.log("true");
-          score++;
-        }
-      // }catch(err){
-      //   alert("did you answer all your questions ?")
-      // }
       });
+    
       alert(`your score is ${score} out of 10`);
     })
