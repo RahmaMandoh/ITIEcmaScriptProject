@@ -18,10 +18,10 @@ btn.addEventListener("click", function(event){
         //Check if the user is already saved at the local storage
         let found = userArray.find(item => item.Email === email.value)
         if(found){
-            passwordValidation(password);
+            const index = userArray.findIndex(item => item.Email === email.value);
+            passwordValidation(password,index);
             if(passwordCorrect){
                 // alert("Welcom!")
-                const index = userArray.findIndex(item => item.Email === email.value);
                 console.log(userArray);
                 console.log(index);
                 
@@ -40,13 +40,14 @@ btn.addEventListener("click", function(event){
     console.log("Sign up button clicked!");
 });
 
-function passwordValidation(pass){
-    let found = userArray.find(item => item.Pass === pass.value)
-    if(found){
+function passwordValidation(pass,index){
+    let correct = userArray[index].Pass === pass.value;
+    if(correct){
         passwordCorrect = true;
-    }else{
+    }
+    else{
         console.log("Password is not true");
-        
+   
     }
 }
 function popUpNotValid(){
