@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* When active, show the pop-up */
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Optional: Background overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <button class="open-popup">Open Pop-up</button>
+    <div class="overlay"></div>
+    <div class="popup">
+        <p>This is a pop-up!</p>
+        <button class="close-popup">Close</button>
+    </div>
+<script>
+    const popup = document.querySelector('.popup');
+    const overlay = document.querySelector('.overlay');
+    const openBtn = document.querySelector('.open-popup');
+    const closeBtn = document.querySelector('.close-popup');
+
+    openBtn.addEventListener('click', () => {
+        popup.classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+</script>
+</body>
+</html>

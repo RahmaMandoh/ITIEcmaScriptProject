@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Note</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            height: 100vh;
+        }
+
+        .sticky-note {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            
+            transform:rotate(-3deg);
+            width: 200px;
+            height: 200px;
+            background-color: #fdfd96;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 18px;
+            padding: 20px;
+            text-align: center;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+                
+        }
+
+        .sticky-note::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            width: 80px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateX(-50%) rotate(2deg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .sticky-container{
+            background-color: #aaa8a83d;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+       
+/* When active, show the pop-up */
+.sticky-note.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+.sticky-container.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* .popup.active {
+    animation: popIn 0.4s ease-out forwards;
+} */
+
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptatem obcaecati dolorem repudiandae fugit quidem!</p>
+    <button class="open-sticky-note">open</button>
+    <div class="sticky-container">
+        <div class="sticky-note">
+            Don't forget to code! 
+            <!-- animated check mark -->
+            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 100 L80 160 L180 40" stroke="green" stroke-width="9" fill="transparent" stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="stroke-dasharray" from="0, 300" to="300, 0" dur="1.5s" fill="freeze"/>
+                </path>
+                
+                <circle cx="180" cy="40" r="5" fill="black">
+                    <animateMotion dur="1.5s" fill="freeze" path="M20 100 L80 160 L180 40" keyPoints="0;1" keyTimes="0;1" />
+                </circle>
+            </svg>
+        </div>
+
+    </div>
+    <button id="draw-btn">Draw SVG</button>
+
+<svg id="svg-drawing" width="200" height="100" viewBox="0 0 200 100">
+    <path d="M10,80 Q95,10 180,80" 
+          stroke="black" fill="transparent" 
+          stroke-width="2" stroke-linecap="round" 
+          class="path" />
+</svg>
+
+    
+<script>
+    const popup = document.querySelector('.sticky-note');
+    const container = document.querySelector('.sticky-container');
+    const openBtn = document.querySelector('.open-sticky-note');
+    openBtn.addEventListener('click', () => {
+        popup.classList.add('active');
+        container.classList.add('active');
+    });
+    const path = document.querySelector(".path");
+    const length = path.getTotalLength();
+
+    // Set up initial values
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+
+    // Animate on button click
+    document.getElementById("draw-btn").addEventListener("click", () => {
+        path.style.transition = "stroke-dashoffset 2s ease-out";
+        path.style.strokeDashoffset = "0";
+    });
+
+</script>
+</body>
+</html>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><defs><linearGradient id="c" x1="108" x2="416" y1="256" y2="256" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e6e6ff"></stop><stop offset="1" stop-color="#f2f2ff"></stop></linearGradient><linearGradient id="a" x1="297.74" x2="297.74" y1="186" y2="176" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#665d75"></stop><stop offset="1" stop-color="#746e80"></stop></linearGradient><linearGradient xlink:href="#a" id="d" x1="168.779" x2="168.779"></linearGradient><linearGradient xlink:href="#a" id="e" x1="201.52" x2="201.52" y1="128" y2="118"></linearGradient><linearGradient xlink:href="#a" id="f" x1="201.52" x2="201.52" y1="98" y2="88"></linearGradient><linearGradient xlink:href="#a" id="g" x1="168.779" x2="168.779" y1="276" y2="266"></linearGradient><linearGradient xlink:href="#a" id="h" x1="297.74" x2="297.74" y1="216" y2="206"></linearGradient><linearGradient xlink:href="#a" id="i" x1="297.74" x2="297.74" y1="276" y2="266"></linearGradient><linearGradient xlink:href="#a" id="j" x1="297.74" x2="297.74" y1="306" y2="296"></linearGradient><linearGradient xlink:href="#a" id="k" x1="168.779" x2="168.779" y1="377.474" y2="367.474"></linearGradient><linearGradient xlink:href="#a" id="l" x1="297.74" x2="297.74" y1="377.474" y2="367.474"></linearGradient><linearGradient xlink:href="#a" id="m" x1="297.74" x2="297.74" y1="407.474" y2="397.474"></linearGradient><linearGradient xlink:href="#a" id="n" x1="297.74" x2="297.74" y1="336" y2="326"></linearGradient><linearGradient id="o" x1="320" x2="416" y1="80" y2="80" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#aaaae3"></stop><stop offset="1" stop-color="#ccccf0"></stop></linearGradient><linearGradient id="p" x1="58" x2="68" y1="411.946" y2="411.946" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#414344"></stop><stop offset="1" stop-color="#353738"></stop></linearGradient><linearGradient id="q" x1="47" x2="79" y1="387.034" y2="387.034" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ebc9a0"></stop><stop offset=".518" stop-color="#e5bb92"></stop><stop offset=".848" stop-color="#e1af87"></stop></linearGradient><linearGradient id="r" x1="47" x2="79" y1="104.5" y2="104.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff9984"></stop><stop offset="1" stop-color="#f07a5e"></stop></linearGradient><linearGradient id="s" x1="63" x2="63" y1="376.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffbe63"></stop><stop offset=".526" stop-color="#fbb05c"></stop><stop offset="1" stop-color="#f79f54"></stop></linearGradient><linearGradient id="b" x1="63" x2="63" y1="376.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffea63"></stop><stop offset=".291" stop-color="#ffe563"></stop><stop offset=".613" stop-color="#ffd863"></stop><stop offset=".948" stop-color="#ffc263"></stop><stop offset="1" stop-color="#ffbe63"></stop></linearGradient><linearGradient id="t" x1="42.039" x2="83.961" y1="120.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7e778a"></stop><stop offset="1" stop-color="#6d6778"></stop></linearGradient><linearGradient xlink:href="#b" id="u" x1="352" x2="480" y1="416" y2="416"></linearGradient><linearGradient id="v" x1="381.809" x2="450.191" y1="416" y2="416" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#57b070"></stop><stop offset="1" stop-color="#4c9961"></stop></linearGradient></defs><g><linearGradient id="c" x1="108" x2="416" y1="256" y2="256" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e6e6ff"></stop><stop offset="1" stop-color="#f2f2ff"></stop></linearGradient><linearGradient id="a" x1="297.74" x2="297.74" y1="186" y2="176" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#665d75"></stop><stop offset="1" stop-color="#746e80"></stop></linearGradient><linearGradient xlink:href="#a" id="d" x1="168.779" x2="168.779"></linearGradient><linearGradient xlink:href="#a" id="e" x1="201.52" x2="201.52" y1="128" y2="118"></linearGradient><linearGradient xlink:href="#a" id="f" x1="201.52" x2="201.52" y1="98" y2="88"></linearGradient><linearGradient xlink:href="#a" id="g" x1="168.779" x2="168.779" y1="276" y2="266"></linearGradient><linearGradient xlink:href="#a" id="h" x1="297.74" x2="297.74" y1="216" y2="206"></linearGradient><linearGradient xlink:href="#a" id="i" x1="297.74" x2="297.74" y1="276" y2="266"></linearGradient><linearGradient xlink:href="#a" id="j" x1="297.74" x2="297.74" y1="306" y2="296"></linearGradient><linearGradient xlink:href="#a" id="k" x1="168.779" x2="168.779" y1="377.474" y2="367.474"></linearGradient><linearGradient xlink:href="#a" id="l" x1="297.74" x2="297.74" y1="377.474" y2="367.474"></linearGradient><linearGradient xlink:href="#a" id="m" x1="297.74" x2="297.74" y1="407.474" y2="397.474"></linearGradient><linearGradient xlink:href="#a" id="n" x1="297.74" x2="297.74" y1="336" y2="326"></linearGradient><linearGradient id="o" x1="320" x2="416" y1="80" y2="80" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#aaaae3"></stop><stop offset="1" stop-color="#ccccf0"></stop></linearGradient><linearGradient id="p" x1="58" x2="68" y1="411.946" y2="411.946" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#414344"></stop><stop offset="1" stop-color="#353738"></stop></linearGradient><linearGradient id="q" x1="47" x2="79" y1="387.034" y2="387.034" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ebc9a0"></stop><stop offset=".518" stop-color="#e5bb92"></stop><stop offset=".848" stop-color="#e1af87"></stop></linearGradient><linearGradient id="r" x1="47" x2="79" y1="104.5" y2="104.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff9984"></stop><stop offset="1" stop-color="#f07a5e"></stop></linearGradient><linearGradient id="s" x1="63" x2="63" y1="376.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffbe63"></stop><stop offset=".526" stop-color="#fbb05c"></stop><stop offset="1" stop-color="#f79f54"></stop></linearGradient><linearGradient id="b" x1="63" x2="63" y1="376.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffea63"></stop><stop offset=".291" stop-color="#ffe563"></stop><stop offset=".613" stop-color="#ffd863"></stop><stop offset=".948" stop-color="#ffc263"></stop><stop offset="1" stop-color="#ffbe63"></stop></linearGradient><linearGradient id="t" x1="42.039" x2="83.961" y1="120.5" y2="120.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7e778a"></stop><stop offset="1" stop-color="#6d6778"></stop></linearGradient><linearGradient xlink:href="#b" id="u" x1="352" x2="480" y1="416" y2="416"></linearGradient><linearGradient id="v" x1="381.809" x2="450.191" y1="416" y2="416" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#57b070"></stop><stop offset="1" stop-color="#4c9961"></stop></linearGradient><g data-name="Exam Approved"><path fill="url(&quot;#c&quot;)" d="M416 480H128a20 20 0 0 1-20-20V52a20 20 0 0 1 20-20h192l32 64 64 32z" opacity="1" data-original="url(#c)" class=""></path><path fill="url(&quot;#a&quot;)" d="M371.48 186H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#a)"></path><path fill="url(&quot;#d&quot;)" d="M185.039 186H152.52c-6.622 0-6.608-10 0-10h32.519c6.621 0 6.608 10 0 10z" opacity="1" data-original="url(#d)"></path><path fill="url(&quot;#e&quot;)" d="M250.52 128h-98c-6.622 0-6.608-10 0-10h98c6.62 0 6.607 10 0 10z" opacity="1" data-original="url(#e)"></path><path fill="url(&quot;#f&quot;)" d="M250.52 88c6.621 0 6.608 10 0 10h-98c-6.622 0-6.608-10 0-10" opacity="1" data-original="url(#f)"></path><path fill="url(&quot;#g&quot;)" d="M185.039 276H152.52c-6.622 0-6.608-10 0-10h32.519c6.621 0 6.608 10 0 10z" opacity="1" data-original="url(#g)"></path><path fill="url(&quot;#h&quot;)" d="M371.48 216H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#h)"></path><path fill="url(&quot;#i&quot;)" d="M371.48 276H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#i)"></path><path fill="url(&quot;#j&quot;)" d="M371.48 306H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#j)"></path><path fill="url(&quot;#k&quot;)" d="M185.039 377.474H152.52c-6.622 0-6.608-10 0-10h32.519c6.621 0 6.608 10 0 10z" opacity="1" data-original="url(#k)"></path><path fill="url(&quot;#l&quot;)" d="M371.48 377.474H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#l)"></path><path fill="url(&quot;#m&quot;)" d="M371.48 407.474H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#m)" class=""></path><path fill="url(&quot;#n&quot;)" d="M371.48 336H224c-6.622 0-6.608-10 0-10h147.48c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#n)"></path><path fill="url(&quot;#o&quot;)" d="M320 32v76a20 20 0 0 0 20 20h76z" opacity="1" data-original="url(#o)"></path><path fill="url(&quot;#p&quot;)" d="M68 400.43v18.07c0 6.611-10 6.62-10 0v-18.07z" opacity="1" data-original="url(#p)"></path><path fill="url(&quot;#q&quot;)" d="m68 405.15 11-28.65s-16.117-7.582-16-7.582-16 7.582-16 7.582l11 28.65z" opacity="1" data-original="url(#q)"></path><path fill="url(&quot;#r&quot;)" d="M57 88.5h12a10 10 0 0 1 10 10v22H47v-22a10 10 0 0 1 10-10z" opacity="1" data-original="url(#r)"></path><path fill="url(&quot;#s&quot;)" d="M47 120.5h32v256H47z" opacity="1" data-original="url(#s)"></path><path fill="url(&quot;#b&quot;)" d="M58 120.5h10v256H58z" opacity="1" data-original="url(#b)"></path><path fill="url(&quot;#t&quot;)" d="M79 125.5H47c-6.622 0-6.608-10 0-10h32c6.622 0 6.608 10 0 10z" opacity="1" data-original="url(#t)"></path><circle cx="416" cy="416" r="64" fill="url(&quot;#u&quot;)" opacity="1" data-original="url(#u)" class=""></circle><path fill="url(&quot;#v&quot;)" d="m402.743 438.259-17.865-17.866c-9.35-9.349 4.78-23.503 14.142-14.142l10.794 10.795 23.167-23.167c9.369-9.363 23.486 4.799 14.143 14.142l-30.239 30.238a9.999 9.999 0 0 1-14.142 0z" opacity="1" data-original="url(#v)" class=""></path></g></g></svg> -->
