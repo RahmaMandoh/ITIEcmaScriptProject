@@ -22,8 +22,11 @@ btn.addEventListener("click", function(event){
             if(passwordCorrect){
                 // alert("Welcom!")
                 const index = userArray.findIndex(item => item.Email === email.value);
-                localStorage.setItem("firstName",JSON.stringify(userArray[index].Fname));
-                localStorage.setItem("lastName",JSON.stringify(userArray[index].Lname));
+                console.log(userArray);
+                console.log(index);
+                
+                localStorage.setItem("firstName",`${userArray[index].NFirst}`);
+                localStorage.setItem("lastName",`${userArray[index].NLast}`);
                 popupSuccess();
 
             }else{
