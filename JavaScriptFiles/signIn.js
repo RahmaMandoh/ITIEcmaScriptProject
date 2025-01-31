@@ -21,7 +21,11 @@ btn.addEventListener("click", function(event){
             passwordValidation(password);
             if(passwordCorrect){
                 // alert("Welcom!")
+                const index = userArray.findIndex(item => item.Email === email.value);
+                localStorage.setItem("firstName",JSON.stringify(userArray[index].Fname));
+                localStorage.setItem("lastName",JSON.stringify(userArray[index].Lname));
                 popupSuccess();
+
             }else{
                 popUpNotValid();
             }

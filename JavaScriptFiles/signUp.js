@@ -1,4 +1,3 @@
-// import { userArray } from "./startPage.js"; 
 
 let form = document.getElementById("signUpForm");
 let firstName = document.getElementById("firstNameInput");
