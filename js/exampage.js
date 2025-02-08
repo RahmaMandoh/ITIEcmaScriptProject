@@ -10,7 +10,7 @@ class QuizQuestion {
   }}
 
     // Fetch questions from the JSON file
-    fetch('../jsonfileqs.json')
+    fetch('../eqs.json')
       .then(response => response.json())
       .then(data => {
         // Shuffle questions
