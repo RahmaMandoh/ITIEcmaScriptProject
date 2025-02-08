@@ -1,4 +1,4 @@
 setTimeout(function() {
-    window.location.href = "../htmlfiles/signin.html";
+    window.location.href = "./htmlfiles/signin.html";
 }, 2000);
 
