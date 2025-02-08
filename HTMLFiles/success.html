@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Result</title>
-    <link rel="stylesheet" href="../Style Sheet Files/Authontcation.css">
+    <link rel="stylesheet" href="../stylesheetfiles/authentication.css">
 </head>
 <body>
     <!-- this code is reapeated in each page  -->
@@ -40,7 +40,7 @@
             <p><a id="logOut" href="#">Log out</a></p>
             
             <audio id="myAudio">
-                <source src="../Sounds/Bravo.mp3" type="audio/mpeg">
+                <source src="../sounds/bravo.mp3" type="audio/mpeg">
             </audio>
         
         
@@ -52,7 +52,7 @@
             var userName = document.getElementById("userName");
             userName.innerText = `${localStorage.getItem("firstName")} ${localStorage.getItem("lastName")}`;
             logOut.addEventListener("click", function(e){
-                window.location.replace("../HTMLFiles/signInhtml.html");
+                window.location.replace("../htmlfiles/signin.html");
             });
             userScore.innerText = `${localStorage.getItem("score")}/10`;
             window.addEventListener("load", function () {
@@ -64,7 +64,7 @@
                 }, 500);
             });
             resolveBtn.addEventListener("click", function(e){
-                window.location.replace("../HTMLFiles/examPage.html");
+                window.location.replace("../htmlfiles/exampage.html");
             });
         </script>
 </body>

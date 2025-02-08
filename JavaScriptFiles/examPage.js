@@ -10,7 +10,7 @@ class QuizQuestion {
   }}
 
     // Fetch questions from the JSON file
-    fetch('../jsonFileQS.json')
+    fetch('../jsonfileqs.json')
       .then(response => response.json())
       .then(data => {
         // Shuffle questions
@@ -96,7 +96,7 @@ class QuizQuestion {
         if (remainingTime === 0) {
           clearInterval(intervalId);
           // alert("Time's up!");
-          window.location.replace("../HTMLFiles/timeOut.html");
+          window.location.replace("../htmlfiles/timeout.html");
         }
 
         remainingTime--;
@@ -171,9 +171,9 @@ class QuizQuestion {
       // alert(`your score is ${score} out of 10`);
       if(score >= 5){
         localStorage.setItem("score", score);
-        window.location.replace("../HTMLFiles/success.html");
+        window.location.replace("../htmlfiles/success.html");
       }else{
-        window.location.replace("../HTMLFiles/Failier.html");
+        window.location.replace("../htmlfiles/failure.html");
         localStorage.setItem("score",score);
       }
     })

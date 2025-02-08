@@ -8,7 +8,7 @@ const popup = document.querySelector('.sticky-note');
 const container = document.querySelector('.sticky-container'); 
 
 if (performance.navigation.type === 1) {
-    window.location.href = "../HTMLFiles/startPagehtml.html";
+    window.location.href = "../htmlfiles/index.html";
 }
 
 btn.addEventListener("click", function(event){
@@ -74,7 +74,7 @@ function popupSuccess(){
             popup.classList.add('active');
             container.classList.add('active');
             setTimeout(() => {
-            window.location.replace("../HTMLFiles/startExam.html");
+            window.location.replace("../htmlfiles/startexam.html");
 
             }, 2000);
 }

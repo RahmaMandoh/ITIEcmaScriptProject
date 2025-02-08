@@ -72,7 +72,7 @@ btn.addEventListener("click", function(event){
             popup.classList.add('active');
             container.classList.add('active');
             setTimeout(() => {
-            window.location.replace("../HTMLFiles/signInhtml.html");
+            window.location.replace("../htmlfiles/signin.html");
                 
             }, 2000);
         }else{
