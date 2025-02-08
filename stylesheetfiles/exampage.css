@@ -29,10 +29,10 @@
     padding: 10px;
 }
 #question{
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .question-container{
-    padding: 15px;
+    padding: 8px;
     min-height: 200px;
     width: 100%;
 }
@@ -89,6 +89,10 @@ span{
     display: flex;
     /* justify-content: center; */
     align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 0;
+    gap:8px;
 }
 .hide{
     display: none;
@@ -111,4 +115,8 @@ i{
 }
 .flagged-tab{
     background-color: coral;
+}
+h4{
+    font-size: 18px;
+    font-weight: 600;
 }

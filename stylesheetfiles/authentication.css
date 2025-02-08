@@ -155,16 +155,16 @@ h6{
     font-weight: 500;
     font-size: 22px;
     color: #002233;
-    margin: 20px;
+    margin: 16px;
 }
 input{
-    /* width: 500px; */
-    width: 70%;
     height: 40px;
     border: 1px solid #014465;
     border-radius: 8px;
     background-color: #F7FCFF;
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
 
 }
 form {
@@ -172,15 +172,15 @@ form {
     width: 100%;
 }
 .input-cont {
-    margin-bottom:30px;
+    margin-bottom:16px;
     width: 70%;
-    
+    box-sizing: border-box;
 }
 .nameField{
     display: flex;
     flex-direction: row;
     width: 70%;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 #firstName, #lastName{
     width: 50%;

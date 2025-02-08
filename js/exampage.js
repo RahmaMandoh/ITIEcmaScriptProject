@@ -60,6 +60,14 @@ class QuizQuestion {
           
           document.getElementById(`question${currentIndex}`).classList.toggle('hide');
           document.getElementById(`${currentIndex}`).classList.toggle('selected-tab');
+          console.log(currentIndex);
+      }
+      if(currentIndex > 0){
+        document.getElementById("prev").style.color = "#014465";
+        document.getElementById("prev").style.cursor = "pointer";
+      }else if(currentIndex == 0){
+        document.getElementById("prev").style.color = "#D5E5FF";
+        document.getElementById("prev").style.cursor = "url('../disable.svg'), auto";
       }
     });
 
@@ -73,7 +81,14 @@ class QuizQuestion {
             
             document.getElementById(`question${currentIndex}`).classList.toggle('hide');
             document.getElementById(`${currentIndex}`).classList.add('selected-tab');
-
+      }
+      if(currentIndex < 9){
+        document.getElementById("next").style.color = "#014465";
+        document.getElementById("next").style.cursor = "pointer";
+      }else if(currentIndex == 9){
+        console.log("Finish");
+        document.getElementById("next").style.color = "#D5E5FF";
+        document.getElementById("next").style.cursor = "url('../disable.svg'), auto";
       }
     });
 
