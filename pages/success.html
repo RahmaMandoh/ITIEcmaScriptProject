@@ -52,7 +52,7 @@
             var userName = document.getElementById("userName");
             userName.innerText = `${localStorage.getItem("firstName")} ${localStorage.getItem("lastName")}`;
             logOut.addEventListener("click", function(e){
-                window.location.replace("../htmlfiles/signin.html");
+                window.location.replace("../pages/signin.html");
             });
             userScore.innerText = `${localStorage.getItem("score")}/10`;
             window.addEventListener("load", function () {
@@ -64,7 +64,7 @@
                 }, 500);
             });
             resolveBtn.addEventListener("click", function(e){
-                window.location.replace("../htmlfiles/exampage.html");
+                window.location.replace("../pages/exampage.html");
             });
         </script>
 </body>

@@ -96,7 +96,7 @@ class QuizQuestion {
         if (remainingTime === 0) {
           clearInterval(intervalId);
           // alert("Time's up!");
-          window.location.replace("../htmlfiles/timeout.html");
+          window.location.replace("../pages/timeout.html");
         }
 
         remainingTime--;
@@ -171,9 +171,9 @@ class QuizQuestion {
       // alert(`your score is ${score} out of 10`);
       if(score >= 5){
         localStorage.setItem("score", score);
-        window.location.replace("../htmlfiles/success.html");
+        window.location.replace("../pages/success.html");
       }else{
-        window.location.replace("../htmlfiles/failure.html");
+        window.location.replace("../pages/failure.html");
         localStorage.setItem("score",score);
       }
     })

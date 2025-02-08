@@ -74,7 +74,7 @@ function popupSuccess(){
             popup.classList.add('active');
             container.classList.add('active');
             setTimeout(() => {
-            window.location.replace("../htmlfiles/startexam.html");
+            window.location.replace("../pages/startexam.html");
 
             }, 2000);
 }
