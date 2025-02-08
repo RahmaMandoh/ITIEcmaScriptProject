@@ -8,7 +8,7 @@ const popup = document.querySelector('.sticky-note');
 const container = document.querySelector('.sticky-container'); 
 
 if (performance.navigation.type === 1) {
-    window.location.href = "../htmlfiles/index.html";
+    window.location.href = "../index.html";
 }
 
 btn.addEventListener("click", function(event){
