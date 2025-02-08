@@ -1,4 +1,5 @@
-setTimeout(function() {
-    window.location.replace("./htmlfiles/signin.html");
-}, 2000);
+// setTimeout(function() {
+// }, 2000);
+
+window.location.replace("./htmlfiles/signin.html");
 
